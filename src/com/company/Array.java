@@ -6,7 +6,6 @@ public class Array {
 
     private int[] items;
     private int count;
-    private int[] newItems;
 
 
     public Array(int size){
@@ -16,8 +15,9 @@ public class Array {
 
     public void insert(int value){
         if (items.length == count){
-            newItems = new int[count*2];
+            int[] newItems = new int[count*2];
 
+            //Java provides built-in methods, such as System.arraycopy() or Arrays.copyOf(), which are faster, more concise, and less error-prone.
             for (int i=0; i<items.length; i++)
                 newItems[i] = items[i];
 
@@ -30,7 +30,7 @@ public class Array {
 
     public void removeAt(int index){
         if (0 <= index && index < count){
-            for (int i = index; i < count-1; i++){
+            for (int i = index; i < count; i++){
                 items[i] = items[i+1];
             }
             count--;
@@ -47,7 +47,7 @@ public class Array {
 
 
     public void print(){
-        //System.out.println("Entire Array "+Arrays.toString(items));
+        System.out.println("Entire Array "+Arrays.toString(items));
         for (int i=0; i<count; i++)
             System.out.println(items[i]);
     }
